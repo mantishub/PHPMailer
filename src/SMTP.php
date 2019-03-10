@@ -1121,6 +1121,11 @@ class SMTP
         $selR = [$this->smtp_conn];
         $selW = null;
         while (is_resource($this->smtp_conn) and !feof($this->smtp_conn)) {
+/*
+            # MANTISHUB: The following block of code timesout even if there are text available to read
+            #            and causes return of empty result.  This causes outgoing email to fail.
+            #
+
             //Must pass vars in here as params are by reference
             if (!stream_select($selR, $selW, $selW, $this->Timelimit)) {
                 $this->edebug(
@@ -1129,6 +1134,8 @@ class SMTP
                 );
                 break;
             }
+*/
+
             //Deliberate noise suppression - errors are handled afterwards
             $str = @fgets($this->smtp_conn, 515);
             $this->edebug('SMTP INBOUND: "' . trim($str) . '"', self::DEBUG_LOWLEVEL);
