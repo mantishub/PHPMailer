@@ -1,5 +1,48 @@
 # PHPMailer Change Log
 
+## Version 6.1.3 (November 21st, 2019) 
+* Fix an issue preventing injected debug handlers from working
+* Fix an issue relating to connection timeout
+* Add `SMTP::MAX_REPLY_LENGTH` constant
+* Remove some dev dependencies; phpdoc no longer included
+* Fix an issue where non-compliant servers returning bare codes caused an SMTP hang
+
+## Version 6.1.2 (November 13th, 2019) 
+* Substantial revision of DKIM header generation
+* Use shorter hashes for auto-generated CID values
+* Fix format of content-id headers, and only use them for inline attachments
+* Remove all use of XHTML
+* Lots of coding standards cleanup
+* API docs are now auto-updated via GitHub actions
+* Fix header separation bug created in 6.1.1
+* Fix misidentification of background attributes in SVG images in msgHTML
+
+## Version 6.1.1 (September 27th 2019)
+* Fix misordered version tag
+
+## Version 6.1.0 (September 27th 2019)
+* Multiple bug fixes for folding of long header lines, thanks to @caugner
+* Add support for [RFC2387 child element content-type hint](https://tools.ietf.org/html/rfc2387#section-3.1) in `multipart/related` structures.
+* Support for Ical event methods other than `REQUEST`, thanks to @puhr-mde
+* Change header folding and param separation to use spaces instead of tabs
+* Use ; to separate multiple MIME header params
+* Add support for RFC3461 DSN messages
+* IMAP example code fixed
+* Use PHP temp streams instead of temp files
+* Allow for longer SMTP error codes
+* Updated Brazilian Portuguese translation
+* Throw exceptions on invalid encoding values
+* Add Afrikaans translation, thanks to @Donno191
+* Updated Farsi/Persian translation
+* Add PHP 7.4 to test config
+* Remove some ambiguity about setting XMailer property
+* Improve error checking in mailing list example
+* Drop PHP 5.5 from CI config as it's no longer supported by Travis-CI
+* Fix S/MIME signing
+* Add constants for encryption type
+* More consistent use of constants for encryption, charset, encoding
+* Add PHPMailer logo images
+
 ## Version 6.0.7 (February 1st 2019)
 * Include RedHat GPL Cooperation Commitment - see the `COMMITMENT` file for details.
 * Don't exclude composer.json from git exports as it breaks composer updates in projects that use PHPMailer
